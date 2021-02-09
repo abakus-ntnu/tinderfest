@@ -1,0 +1,16 @@
+{
+  "name": "socket",
+  "version": "1.0.0",
+  "main": "messageHandler.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node messageHandler.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.2.3",
+    "http": "^0.0.1-security",
+    "socket.io": "^3.1.1"
+  }
+}

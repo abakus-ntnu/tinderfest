@@ -1,0 +1,14 @@
+.frame {
+    position: relative;
+    height: 700px;
+    width: 375px;
+    overflow: hidden;
+
+    border: 2px solid black;
+    border-radius: 40px;
+}
+
+.list {
+    position: absolute;
+    bottom: 0px;
+}
