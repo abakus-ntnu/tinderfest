@@ -14,7 +14,6 @@ const io = require("socket.io")(server, {
     origin: "*",
   },
 });
-const mongoose = require("mongoose");
 const rateLimit = require("express-rate-limit");
 
 const apiLimiter = rateLimit({

@@ -1,7 +1,5 @@
 import { useEffect } from "react";
 import styles from "./Hot.module.css";
-import { socket } from "./socket.js";
-
 
 export default function Hot(props) {
   const socket = props.socket;
