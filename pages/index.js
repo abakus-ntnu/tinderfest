@@ -4,6 +4,7 @@ import useSWR from "swr";
 import MessageList from "../components/MessageList";
 import Hot from "../components/Hot";
 import Not from "../components/Not";
+import style from "./index.module.css";
 
 // Socket
 import socketIOClient from "socket.io-client";
@@ -24,8 +25,11 @@ export default function Index() {
     {/* Missing: everything ;)) */}
     <MessageInput/>
     <MessageList socket={socket}/>
-    <Hot socket={socket}/>
-    <Not socket={socket}/>
+    <div id="voting">
+      <Hot socket={socket}/>
+      <Not socket={socket}/>
+    </div>
+
     <HotReactionWindow socket={socket} />
     <NotReactionWindow socket={socket} />
     </div>);
