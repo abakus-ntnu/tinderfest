@@ -78,6 +78,10 @@ io.on("connection", (socket) => {
   socket.on("hot", () => {
     io.emit("hot");
   });
+
+  socket.on("not", () => {
+    io.emit("not");
+  });
 });
 
 /*
