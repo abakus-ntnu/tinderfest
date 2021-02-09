@@ -9,7 +9,7 @@ const ENDPOINT = "ws://localhost:5000";
 // TODO: Hot or not component
 
 
-export default function MessageList(props) {
+const MessageList = (props) => {
   const socket = props.socket;
 
   const [messages, setMessages] = useState([]);
@@ -54,3 +54,4 @@ export default function MessageList(props) {
     </div>
   );
 }
+export default MessageList;

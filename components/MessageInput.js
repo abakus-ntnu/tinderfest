@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const MESSAGE_SERVER = "http://localhost:5000/messages";
 
-export default function MessageInput() {
+const MessageInput = () => {
   const [inputText, setInputText] = useState("");
   const [username, setUsername] = useState("");
 
@@ -68,3 +68,4 @@ export default function MessageInput() {
     </div>
   );
 }
+export default MessageInput;
