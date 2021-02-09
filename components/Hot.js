@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import styles from "./Hot.module.css";
 
-export default function Hot(props) {
+const Hot = (props) => {
   const socket = props.socket;
 
   let sendHot = () => {
@@ -13,3 +13,4 @@ export default function Hot(props) {
     </div>
   );
 }
+export default Hot;

@@ -16,7 +16,7 @@ const socket = socketIOClient(ENTRYPOINT);
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-export default function Index() {
+const Index = () => {
   const { data, error } = useSWR("/api/state", fetcher);
 
   if (error) return <div>Failed to load</div>;
@@ -36,3 +36,4 @@ export default function Index() {
     <NotReactionWindow socket={socket} />
     </div>);
 }
+export default Index;

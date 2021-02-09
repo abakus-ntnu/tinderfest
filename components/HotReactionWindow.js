@@ -1,19 +1,13 @@
 import { useEffect, useState } from "react";
 import Reward from "react-rewards";
 
-export default function HotReactionWindow(props) {
+const HotReactionWindow = (props) => {
   const socket = props.socket;
 
-  //   const windowRef = useRef(null);
-  //   const childRef = useRef(null);
-
   let reward;
-
-    const [reactions, setReactions] = useState([]);
-
-    const generateReaction = () => {
-      reward.rewardMe();
-    };
+  const generateReaction = () => {
+    reward.rewardMe();
+  };
 
   useEffect(() => {
     socket.on("hot", generateReaction);
@@ -33,7 +27,8 @@ export default function HotReactionWindow(props) {
         emoji: ['hot']
       }
       }>
-<div></div>
+      <div></div>
     </Reward>
-      </div>;
+  </div>;
 }
+export default HotReactionWindow;

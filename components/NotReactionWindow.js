@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Reward from "react-rewards";
 
-export default function NotReactionWindow(props) {
+const NotReactionWindow = (props) => {
   const socket = props.socket;
 
   let reward;
@@ -31,3 +31,4 @@ export default function NotReactionWindow(props) {
     </Reward>
     </div>;
 }
+export default NotReactionWindow;

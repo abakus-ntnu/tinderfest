@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import styles from "./Not.module.css";
 
-export default function Not(props) {
+const Not = (props) => {
   const socket = props.socket;
 
   let sendNot = () => {
@@ -13,3 +13,4 @@ export default function Not(props) {
     </div>
   );
 }
+export default Not;

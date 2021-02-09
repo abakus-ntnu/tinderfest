@@ -1,6 +1,6 @@
 import styles from "./Message.module.css"
 
-export default function Message(props) {
+const Message = (props) => {
     console.log(props);
     return (<div className={styles.message}>
         <div className={styles.picture}></div>
@@ -10,3 +10,4 @@ export default function Message(props) {
         </div>
     </div>);
 }
+export default Message;

@@ -19,5 +19,4 @@ const Stream = ({ streamId }) => {
     </div>
   );
 };
-
 export default Stream; 
