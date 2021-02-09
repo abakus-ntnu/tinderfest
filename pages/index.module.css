@@ -2,3 +2,8 @@
   background-color: brown;
   width: 100px;
 }
+
+#voting {
+  background-color: blue;
+  display: flex;
+}

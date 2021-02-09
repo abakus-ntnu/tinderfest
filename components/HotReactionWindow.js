@@ -24,7 +24,7 @@ const HotReactionWindow = (props) => {
         angle: 70,
         elementCount: 1,
         springAnimaion: false,
-        emoji: ['hot']
+        emoji: ["<img style='width:40px;' src='hot.png'/>"]
       }
       }>
       <div></div>
