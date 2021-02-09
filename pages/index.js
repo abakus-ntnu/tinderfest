@@ -4,6 +4,7 @@ import useSWR from "swr";
 import MessageList from "../components/MessageList";
 import Hot from "../components/Hot";
 import Not from "../components/Not";
+import Stream from "../components/Stream";
 
 // Socket
 import socketIOClient from "socket.io-client";
@@ -22,6 +23,7 @@ export default function Index() {
 
   return (<div>
     {/* Missing: everything ;)) */}
+    <Stream streamId=""/>
     <MessageInput/>
     <MessageList socket={socket}/>
     <Hot socket={socket}/>
