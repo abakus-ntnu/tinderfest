@@ -24,7 +24,7 @@ export default function NotReactionWindow(props) {
         angle: 70,
         elementCount: 1,
         springAnimaion: false,
-        emoji: ["not"]
+        emoji: ["<img style='width:50px;' src='not.png'/>"]
       }
       }>
     <div></div>
