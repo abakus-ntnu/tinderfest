@@ -22,8 +22,8 @@ const MessageInput = () => {
   };
 
   const handleUsernameSubmit = (event) => {
-    setUsername(event.target.value);
     sessionStorage.setItem("name", username);
+    setUsernameExists(true);
     event.preventDefault();
   };
 
@@ -35,9 +35,11 @@ const MessageInput = () => {
   }, []);
 
   const handleMessageSubmit = (event) => {
-    console.log(event.target.value);
     // Cannot send empty message
-    if (!inputText) return;
+    if (!inputText) {
+      event.preventDefault(); 
+      return;
+    } 
 
     fetch(MESSAGE_SERVER, {
       method: "POST",

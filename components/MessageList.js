@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useState } from "react/cjs/react.development";
 import socketIOClient from "socket.io-client";
 import Message from "./Message"; 
@@ -12,11 +12,18 @@ const ENDPOINT = "ws://localhost:5000";
 const MessageList = (props) => {
   const socket = props.socket;
 
+  let list = useRef(null);
+
   const [messages, setMessages] = useState([]);
 
   const addMessage = (message) => {
-    setMessages((prevMessages)=> [...prevMessages, message])
-    console.log("Her", message);
+    setMessages((prevMessages)=> prevMessages.length <= 5 ? [...prevMessages, message] : [...prevMessages.shift(), message])
+    
+
+    // const scroll =
+    //   list.current.scrollHeight -
+    //   list.current.clientHeight;
+    // console.log(list.current.scrollTo(0, scroll))
   };
 
   // Get messages from server
@@ -44,8 +51,8 @@ const MessageList = (props) => {
 
   return (
     <div className={styles.frame}>
-    <div className={styles.list}>
-    {messages.map((message) => <Message message={message} />)}
+    <div className={styles.list} ref={list}>
+    {messages.map((message, i) => <Message key={i} message={message} />)}
       {/* 
       Dev 
       <button onClick={testAddMessage}>hnn</button>
