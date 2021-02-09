@@ -7,6 +7,7 @@ hot or not
 const express = require("express");
 const http = require("http");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const app = express();
 const server = http.createServer(app);
 const io = require("socket.io")(server, {
@@ -22,7 +23,8 @@ const apiLimiter = rateLimit({
 });
 
 app.use("/messages", apiLimiter);
-app.use(express.static(__dirname));
+app.use(cors());
+app.use(express.static(__dirname, ));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
