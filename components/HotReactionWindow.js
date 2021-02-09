@@ -30,7 +30,7 @@ export default function HotReactionWindow(props) {
         angle: 70,
         elementCount: 1,
         springAnimaion: false,
-        emoji: ['💚']
+        emoji: ['hot']
       }
       }>
 <div></div>

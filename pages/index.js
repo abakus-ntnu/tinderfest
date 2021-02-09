@@ -5,6 +5,7 @@ import MessageList from "../components/MessageList";
 import Hot from "../components/Hot";
 import Not from "../components/Not";
 import Stream from "../components/Stream";
+import style from "./index.module.css";
 
 // Socket
 import socketIOClient from "socket.io-client";
@@ -26,8 +27,11 @@ export default function Index() {
     <Stream streamId=""/>
     <MessageInput/>
     <MessageList socket={socket}/>
-    <Hot socket={socket}/>
-    <Not socket={socket}/>
+    <div id="voting">
+      <Hot socket={socket}/>
+      <Not socket={socket}/>
+    </div>
+
     <HotReactionWindow socket={socket} />
     <NotReactionWindow socket={socket} />
     </div>);
