@@ -33,24 +33,32 @@ const Index = () => {
     <Helmet>
       <title>{ "tinderfest" }</title>
     </Helmet>
-    <div className={styles.streamAndMessages}>
-      <div className={styles.streamAndVoting}>
-        <div style={{display: 'flex', "alignItems": "flexEnd"}}>
-          <HotReactionWindow socket={socket} showReactions={showReactions} />
-          <Stream streamId="zkBpmCPENDU"/>
-          <NotReactionWindow socket={socket} showReactions={showReactions}/>
-        </div>
-        <div className={styles.voting}>
-          <Hot socket={socket}/>
-          <ReactionToggle setShowReactions={setShowReactions} showReactions={showReactions}/>
-          <Not socket={socket}/>
-        </div>
+    <div className={styles.content}>
+      <div className={styles.header}>
+        <h1>tinderfest</h1>
       </div>
-      <div className={styles.chat}>
-        <MessageList socket={socket}/>
-        <MessageInput/>
+      <div className={styles.streamAndMessages}>
+        <div className={styles.streamAndVoting}>
+          <div style={{display: 'flex', "alignItems": "flexEnd"}}>
+            <HotReactionWindow socket={socket} showReactions={showReactions} />
+            <Stream streamId="zkBpmCPENDU"/>
+            <NotReactionWindow socket={socket} showReactions={showReactions}/>
+          </div>
+          <div className={styles.votingAndToggle}>
+            <div className={styles.voting}>
+              <Hot socket={socket}/>
+              <Not socket={socket}/>
+            </div>
+            <ReactionToggle setShowReactions={setShowReactions} showReactions={showReactions}/>
+          </div>
+        </div>
+        <div className={styles.chat}>
+          <MessageList socket={socket}/>
+          <MessageInput/>
+        </div>
       </div>
     </div>
+
 
 
  

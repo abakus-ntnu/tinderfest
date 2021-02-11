@@ -14,6 +14,7 @@ const Hot = (props) => {
   const socket = props.socket;
   return (
     <div className={styles.button} onClick={sendHot}>
+      <img className={styles.heart} src="/hot.png" alt="hot"/>
     </div>
   );
 }

@@ -62,28 +62,28 @@ const MessageInput = () => {
   return (
     <div className={styles.container}>
       {!usernameExists && (
-        <form onSubmit={handleUsernameSubmit}>
+        <form className={styles.form} onSubmit={handleUsernameSubmit}>
           <label>
             <input
               type="text"
               value={username}
               placeholder="Navn"
               onChange={handleUsernameChange}
-              className={styles.field}
+              className={styles.textInput}
             />
           </label>
-          <input type="submit" value="Sett brukernavn" />
+          <input className={styles.submitInput} type="submit" value="Sett brukernavn" />
         </form>
       )}
       {usernameExists && (
-        <form onSubmit={handleMessageSubmit}>
+        <form className={styles.form} onSubmit={handleMessageSubmit}>
           <label>
             <input
               type="text"
               value={inputText}
               placeholder="Skriv en melding ..."
               onChange={handleInputTextChange}
-              className={styles.messageInput}
+              className={styles.textInput}
               // onKeyDown={handleInputTextKeyDown}
             />
           </label>

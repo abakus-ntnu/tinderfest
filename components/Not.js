@@ -14,6 +14,7 @@ const Not = (props) => {
   const socket = props.socket;
   return (
     <div className={styles.button} onClick={sendNot}>
+      <img className={styles.x} src="/not.png"/>
     </div>
   );
 }

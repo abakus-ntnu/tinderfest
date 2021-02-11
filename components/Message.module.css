@@ -9,6 +9,7 @@
 .picture {
   width: 40px;
   height: 40px;
+  margin-left: 5px;
   border-radius: 50%;
   background-color: #b21c17;
   align-self: flex-end;
@@ -27,11 +28,10 @@
 }
 
 .text {
-  background-color: lightgray;
-  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  background-color: #e7ecf0;
   padding: 10px;
   padding-right: 13px;
   padding-left: 12px;
-  border-radius: 20px 20px 20px 3px;
+  border-radius: 18px 18px 18px 3px;
   margin: 5px;
 }
