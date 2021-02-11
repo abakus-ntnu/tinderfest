@@ -4,6 +4,8 @@
 # dotenv environment variables file (build for Zeit Now)
 .env
 .env.build
+.env.local
+socket/env.js
 # Dependency directories
 node_modules/
 # Logs

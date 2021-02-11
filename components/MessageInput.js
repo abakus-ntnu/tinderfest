@@ -3,8 +3,6 @@
 import { useEffect, useState } from "react";
 import styles from "./MessageInput.module.css";
 
-const MESSAGE_SERVER = "http://localhost:5000/messages";
-
 const MessageInput = () => {
   const [inputText, setInputText] = useState("");
   const [username, setUsername] = useState("");
@@ -42,7 +40,7 @@ const MessageInput = () => {
       return;
     } 
 
-    fetch(MESSAGE_SERVER, {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/messages`, {
       method: "POST",
       headers: {
         Accept: "application/json",
