@@ -19,6 +19,7 @@ const io = require("socket.io")(server, {
 });
 const rateLimit = require("express-rate-limit");
 const redisStore = require("rate-limit-redis");
+const env = require("./env");
 
 const apiLimiter = rateLimit({
   store: new redisStore({
