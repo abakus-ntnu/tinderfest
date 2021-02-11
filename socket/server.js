@@ -16,10 +16,16 @@ const io = require("socket.io")(server, {
   },
 });
 const rateLimit = require("express-rate-limit");
+const redisStore = require("rate-limit-redis");
 
 const apiLimiter = rateLimit({
+  store: new redisStore({
+    redisURL: "redis://127.0.0.1:6379"
+  }),
   windowMs: 1 * 60 * 1000, // 1 minute
   max: 7, // limit each IP to 7 requests per windowMs
+  statusCode: 400,
+  message: "rate limit exceeded. Please wait"
 });
 
 app.use("/messages", apiLimiter);
@@ -66,9 +72,11 @@ app.post("/messages", async (req, res) => {
       return res.sendStatus(200);
     }
     return res.sendStatus(400);
+  
   } catch (error) {
     res.sendStatus(500);
     return console.log("error", error);
+  
   } finally {
     console.log("Message Posted");
   }

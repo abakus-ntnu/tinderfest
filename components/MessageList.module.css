@@ -1,18 +1,22 @@
 .frame {
-    position: relative;
-    height: 700px;
-    width: 375px;
-    overflow: hidden;
+  position: relative;
+  height: 700px;
+  width: 375px;
 
-    border: 2px solid black;
-    border-radius: 40px;
+  overflow-x: hidden;
+
+  border: 2px solid black;
+  border-radius: 40px;
 }
 
 .list {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    
-    position: absolute;
-    bottom: 0px;
+  display: block;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  height: inherit;
+  width: inherit;
+
+  overflow-y: auto;
+  position: absolute;
 }

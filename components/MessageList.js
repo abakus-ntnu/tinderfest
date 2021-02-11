@@ -12,18 +12,23 @@ const ENDPOINT = "ws://localhost:5000";
 const MessageList = (props) => {
   const socket = props.socket;
 
-  let list = useRef(null);
+  const listRef = useRef();
 
   const [messages, setMessages] = useState([]);
 
   const addMessage = (message) => {
-    setMessages((prevMessages)=> prevMessages.length <= 5 ? [...prevMessages, message] : [...prevMessages.shift(), message])
-    
+    const oldBottom =
+      listRef.current.scrollHeight -
+      listRef.current.clientHeight;
 
-    // const scroll =
-    //   list.current.scrollHeight -
-    //   list.current.clientHeight;
-    // console.log(list.current.scrollTo(0, scroll))
+    setMessages((prevMessages)=> prevMessages.length <= 50 ? [...prevMessages, message] : [...prevMessages.shift(), message])
+    
+    const bottom =
+      listRef.current.scrollHeight -
+      listRef.current.clientHeight;
+
+    if (listRef.current.scrollTop >= oldBottom-150)
+      listRef.current.scrollTo(0, bottom);
   };
 
   // Get messages from server
@@ -51,7 +56,7 @@ const MessageList = (props) => {
 
   return (
     <div className={styles.frame}>
-    <div className={styles.list} ref={list}>
+    <div className={styles.list} ref={listRef}>
     {messages.map((message, i) => <Message key={i} message={message} />)}
       {/* 
       Dev 
