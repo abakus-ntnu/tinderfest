@@ -5,6 +5,7 @@ import MessageList from "../components/MessageList";
 import Hot from "../components/Hot";
 import Not from "../components/Not";
 import Stream from "../components/Stream";
+import Agenda from "../components/Agenda";
 import styles from "./index.module.css";
 import { Helmet } from 'react-helmet'
 
@@ -14,6 +15,7 @@ import HotReactionWindow from "../components/HotReactionWindow";
 import NotReactionWindow from "../components/NotReactionWindow";
 import { useState } from "react";
 import ReactionToggle from "../components/ReactionToggle";
+import Agenda from "../components/Agenda";
 
 const socket = socketIOClient(process.env.NEXT_PUBLIC_SOCKET_URL);
 
@@ -51,7 +53,7 @@ const Index = () => {
         <MessageInput/>
       </div>
     </div>
-
+    <Agenda agenda={data.agenda}/>
 
  
     </div>);
