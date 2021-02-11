@@ -1,4 +1,35 @@
+.container {
+  height: 50px;
+
+  border-radius: 0px 0px 30px 30px;
+  background-color: white;
+}
+
 .field {
-    border-radius: 20px;
-    padding: 5px;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.messageInput {
+  border: none;
+  outline: none;
+  padding: 10px;
+  background-color: transparent;
+}
+
+.submitInput {
+  border: none;
+  outline: none;
+  color: grey;
+  background-color: transparent;
+  transform: all 0.3s;
+}
+
+.submitInput:active {
+  transform: all 0.3s;
+  color: black;
+}
+
+.submitInput:hover {
+  cursor: pointer;
 }
