@@ -1,6 +1,7 @@
 // TODO: Empty Message filter
 
 import { useEffect, useState } from "react";
+import styles from "./MessageInput.module.css";
 
 const MESSAGE_SERVER = "http://localhost:5000/messages";
 
@@ -70,9 +71,10 @@ const MessageInput = () => {
               value={username}
               placeholder="Navn"
               onChange={handleUsernameChange}
+              className={styles.field}
             />
           </label>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Sett brukernavn" />
         </form>
       )}
       {usernameExists && (
