@@ -4,8 +4,6 @@ Passord for å skrive i chat og/eller se stream?
 hot or not
 */
 
-const env = require('./env');
-
 const express = require("express");
 const http = require("http");
 const bodyParser = require("body-parser");
@@ -19,18 +17,22 @@ const io = require("socket.io")(server, {
 });
 const rateLimit = require("express-rate-limit");
 const redisStore = require("rate-limit-redis");
+const store =  new redisStore({
+    redisURL: "redis://127.0.0.1:6379"
+  })
 
 const apiLimiter = rateLimit({
-  store: new redisStore({
-    redisURL: env.REDIS_URL
-  }),
+  store,
   windowMs: 1 * 60 * 1000, // 1 minute
   max: 7, // limit each IP to 7 requests per windowMs
   statusCode: 400,
-  message: "rate limit exceeded. Please wait"
+  message: "rate limit exceeded. Please wait",
+  perfix: "message",
 });
 
 app.use("/messages", apiLimiter);
+app.use("/hot", apiLimiter);
+app.use("/not", apiLimiter);
 app.use(cors());
 app.use(express.static(__dirname, ));
 app.use(bodyParser.json());
@@ -84,16 +86,32 @@ app.post("/messages", async (req, res) => {
   }
 });
 
-io.on("connection", (socket) => {
-  console.log("a user is connected");
-
-  socket.on("hot", () => {
+app.post("/hot", async(req, res) => {
+  try {
     io.emit("hot");
-  });
+    return res.sendStatus(200);
 
-  socket.on("not", () => {
+  } catch (error) {
+    res.sendStatus(500);
+    return console.log("error", error);
+
+  } finally {
+    console.log("Hot Posted");
+  }
+});
+
+app.post("/not", async(req, res) => {
+  try {
     io.emit("not");
-  });
+    return res.sendStatus(200);
+
+  } catch (error) {
+    res.sendStatus(500);
+    return console.log("error", error);
+
+  } finally {
+    console.log("Not Posted");
+  }
 });
 
 /*
@@ -101,6 +119,6 @@ mongoose.connect(dbUrl, (err) => {
   console.log('mongodb connected',err);
 })*/
 
-server.listen(env.PORT, () => {
+server.listen(5000, () => {
   console.log("server is running on port", server.address().port);
 });
