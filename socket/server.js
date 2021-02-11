@@ -17,23 +17,20 @@ const io = require("socket.io")(server, {
 });
 const rateLimit = require("express-rate-limit");
 const redisStore = require("rate-limit-redis");
-const store =  new redisStore({
-    redisURL: "redis://127.0.0.1:6379"
-  })
 const env = require("./env");
 
-const apiLimiter = rateLimit({
-  store,
-  windowMs: 1 * 60 * 1000, // 1 minute
-  max: 7, // limit each IP to 7 requests per windowMs
+const apiLimiter = new rateLimit({
+  store: new redisStore({
+    redisURL: "redis://127.0.0.1:6379"
+  }),
+  windowMs:  10 * 1000, // 1 minute
+  max: 2, // limit each IP to 7 requests per windowMs
   statusCode: 400,
   message: "rate limit exceeded. Please wait",
-  perfix: "message",
+  delayMs: 0
 });
 
-app.use("/messages", apiLimiter);
-app.use("/hot", apiLimiter);
-app.use("/not", apiLimiter);
+app.use(apiLimiter);
 app.use(cors());
 app.use(express.static(__dirname, ));
 app.use(bodyParser.json());

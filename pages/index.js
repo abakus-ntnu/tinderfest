@@ -12,6 +12,8 @@ import { Helmet } from 'react-helmet'
 import socketIOClient from "socket.io-client";
 import HotReactionWindow from "../components/HotReactionWindow";
 import NotReactionWindow from "../components/NotReactionWindow";
+import { useState } from "react";
+import ReactionToggle from "../components/ReactionToggle";
 
 const socket = socketIOClient(process.env.NEXT_PUBLIC_SOCKET_URL);
 
@@ -20,10 +22,12 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 const Index = () => {
   const { data, error } = useSWR("/api/state", fetcher);
 
-  const [reactionToggled, setReactionToggle] = useState(true);
+  const [showReactions, setShowReactions] = useState(true);
 
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
+
+  console.log(data)
 
   return (<div className={styles.container}>
     <Helmet>
@@ -31,9 +35,14 @@ const Index = () => {
     </Helmet>
     <div className={styles.streamAndMessages}>
       <div className={styles.streamAndVoting}>
-        <Stream streamId="zkBpmCPENDU"/>
+        <div style={{display: 'flex', "alignItems": "flexEnd"}}>
+          <HotReactionWindow socket={socket} showReactions={showReactions} />
+          <Stream streamId="zkBpmCPENDU"/>
+          <NotReactionWindow socket={socket} showReactions={showReactions}/>
+        </div>
         <div className={styles.voting}>
           <Hot socket={socket}/>
+          <ReactionToggle setShowReactions={setShowReactions} showReactions={showReactions}/>
           <Not socket={socket}/>
         </div>
       </div>
@@ -43,8 +52,6 @@ const Index = () => {
       </div>
     </div>
 
-    <HotReactionWindow socket={socket} />
-    <NotReactionWindow socket={socket} />
 
  
     </div>);
