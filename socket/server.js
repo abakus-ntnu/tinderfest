@@ -4,6 +4,10 @@ Passord for å skrive i chat og/eller se stream?
 hot or not
 */
 
+<<<<<<< HEAD
+=======
+const env = require("./env");
+>>>>>>> reaction toggle test
 const express = require("express");
 const http = require("http");
 const bodyParser = require("body-parser");
@@ -17,10 +21,13 @@ const io = require("socket.io")(server, {
 });
 const rateLimit = require("express-rate-limit");
 const redisStore = require("rate-limit-redis");
+<<<<<<< HEAD
 const store =  new redisStore({
     redisURL: "redis://127.0.0.1:6379"
   })
 const env = require("./env");
+=======
+>>>>>>> reaction toggle test
 
 const apiLimiter = rateLimit({
   store,

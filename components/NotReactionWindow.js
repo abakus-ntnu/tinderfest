@@ -21,7 +21,7 @@ const NotReactionWindow = (props) => {
         decay: 1,
         startVelocity: 7,
         spread: 10,
-        angle: 70,
+        angle: 110,
         elementCount: 1,
         springAnimaion: false,
         emoji: ["<img style='width:50px;' src='not.png'/>"]

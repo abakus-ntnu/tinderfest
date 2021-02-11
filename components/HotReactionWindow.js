@@ -6,7 +6,8 @@ const HotReactionWindow = (props) => {
 
   let reward;
   const generateReaction = () => {
-    reward.rewardMe();
+    if (props.showReactions)
+      reward.rewardMe();
   };
 
   useEffect(() => {
