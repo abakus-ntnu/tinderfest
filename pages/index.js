@@ -11,8 +11,8 @@ import styles from "./index.module.css";
 import socketIOClient from "socket.io-client";
 import HotReactionWindow from "../components/HotReactionWindow";
 import NotReactionWindow from "../components/NotReactionWindow";
-const ENTRYPOINT = "ws://localhost:5000";
-const socket = socketIOClient(ENTRYPOINT);
+
+const socket = socketIOClient(process.env.NEXT_PUBLIC_SOCKET_URL);
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 

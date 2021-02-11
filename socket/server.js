@@ -4,6 +4,8 @@ Passord for å skrive i chat og/eller se stream?
 hot or not
 */
 
+const env = require('./env');
+
 const express = require("express");
 const http = require("http");
 const bodyParser = require("body-parser");
@@ -20,7 +22,7 @@ const redisStore = require("rate-limit-redis");
 
 const apiLimiter = rateLimit({
   store: new redisStore({
-    redisURL: "redis://127.0.0.1:6379"
+    redisURL: env.REDIS_URL
   }),
   windowMs: 1 * 60 * 1000, // 1 minute
   max: 7, // limit each IP to 7 requests per windowMs
@@ -99,6 +101,6 @@ mongoose.connect(dbUrl, (err) => {
   console.log('mongodb connected',err);
 })*/
 
-server.listen(5000, () => {
+server.listen(env.PORT, () => {
   console.log("server is running on port", server.address().port);
 });
