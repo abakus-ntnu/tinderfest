@@ -15,7 +15,6 @@ import HotReactionWindow from "../components/HotReactionWindow";
 import NotReactionWindow from "../components/NotReactionWindow";
 import { useState } from "react";
 import ReactionToggle from "../components/ReactionToggle";
-import Agenda from "../components/Agenda";
 
 const socket = socketIOClient(process.env.NEXT_PUBLIC_SOCKET_URL);
 
