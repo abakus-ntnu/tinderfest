@@ -4,15 +4,18 @@ import Reward from "react-rewards";
 const NotReactionWindow = (props) => {
   const socket = props.socket;
 
+  const showReactions = props.showReactions;
+
   let reward;
   const generateReaction = () => {
+    if (showReactions)
     reward.rewardMe();
   };
 
   useEffect(() => {
     socket.on("not", generateReaction);
     return () => socket.off("not", generateReaction);
-  }, []);
+  }, [showReactions]);
 
   return <div>
     <Reward ref={(ref) => {reward = ref}} type={"emoji"} config={
