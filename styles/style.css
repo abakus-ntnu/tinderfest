@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 body {
   height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,5 +14,10 @@ body {
     rgba(255, 88, 100, 1) 47%,
     rgba(255, 101, 91, 1) 100%
   );
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+::selection {
+  background: rgb(253, 41, 123);
+  color: #fff;
 }
