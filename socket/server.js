@@ -20,6 +20,7 @@ const redisStore = require("rate-limit-redis");
 const store =  new redisStore({
     redisURL: "redis://127.0.0.1:6379"
   })
+const env = require("./env");
 
 const apiLimiter = rateLimit({
   store,

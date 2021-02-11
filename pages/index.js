@@ -20,6 +20,8 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 const Index = () => {
   const { data, error } = useSWR("/api/state", fetcher);
 
+  const [reactionToggled, setReactionToggle] = useState(true);
+
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading...</div>;
 
