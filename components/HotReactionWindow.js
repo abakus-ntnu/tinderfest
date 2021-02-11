@@ -27,7 +27,7 @@ const HotReactionWindow = (props) => {
         emoji: ["<img style='width:40px;' src='hot.png'/>"]
       }
       }>
-      <div></div>
+      <div></div> {/*use this when changing style?*/}
     </Reward>
   </div>;
 }

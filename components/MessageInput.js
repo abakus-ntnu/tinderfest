@@ -60,7 +60,7 @@ const MessageInput = () => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       {!usernameExists && (
         <form onSubmit={handleUsernameSubmit}>
           <label>
@@ -81,12 +81,13 @@ const MessageInput = () => {
             <input
               type="text"
               value={inputText}
-              placeholder="melding ..."
+              placeholder="Skriv en melding ..."
               onChange={handleInputTextChange}
+              className={styles.messageInput}
               // onKeyDown={handleInputTextKeyDown}
             />
           </label>
-          <input type="submit" value="Submit" />
+          <input className={styles.submitInput} type="submit" value="Send" />
         </form>
       )}
     </div>

@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useState } from "react/cjs/react.development";
 import socketIOClient from "socket.io-client";
 import Message from "./Message"; 
-import styles from "./MessageList.module.css"
+import styles from "./MessageList.module.css";
 
 const ENDPOINT = "ws://localhost:5000";
 
@@ -55,15 +55,19 @@ const MessageList = (props) => {
   }, []);
 
   return (
-    <div className={styles.frame}>
-    <div className={styles.list} ref={listRef}>
-    {messages.map((message, i) => <Message key={i} message={message} />)}
-      {/* 
-      Dev 
-      <button onClick={testAddMessage}>hnn</button>
-    */}
+    <div>
+      <div className={styles.frame}>
+      <div className={styles.list} ref={listRef}>
+      {messages.map((message, i) => <Message key={i} message={message} />)}
+        {/* 
+        Dev 
+        <button onClick={testAddMessage}>hnn</button>
+      */}
+      </div>
+
+      </div>
     </div>
-    </div>
+
   );
 }
 export default MessageList;
