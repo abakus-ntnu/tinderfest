@@ -5,8 +5,11 @@
 
 .header {
   text-align: center;
-  color: white;
-  font-size: 1.3em;
+  margin-bottom: 30px;
+}
+
+.headerImg {
+  width: 15%;
 }
 
 .streamAndMessages {
@@ -51,11 +54,8 @@
 }
 
 @media (max-width: 1100px) {
-  .header {
-    font-size: 1.1em;
-  }
-
   .streamAndReactions {
+    margin-left: 30px;
     margin-right: 30px;
   }
 }

@@ -36,7 +36,7 @@ const Index = () => {
     </Helmet>
     <div className={styles.centerContent}>
       <div className={styles.header}>
-        <h1>tinderfest</h1>
+        <img className={styles.headerImg} src="/header_tinderfest.png" />
       </div>
       <div className={styles.streamAndMessages}>
         <div className={styles.streamAndVoting}>
