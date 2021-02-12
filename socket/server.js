@@ -69,7 +69,7 @@ app.post("/messages", async (req, res) => {
       else
     */
    
-    if (req.body.name && req.body.text) {
+    if (req.body.name && req.body.text && req.body.avatar) {
       io.emit("message", req.body);
       return res.sendStatus(200);
     }

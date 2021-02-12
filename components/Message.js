@@ -2,8 +2,9 @@ import styles from "./Message.module.css"
 
 const Message = (props) => {
     console.log(props);
+    const avatarLink = "/" + props.message.avatar + ".png";
     return (<div className={styles.message}>
-        <div className={styles.picture}></div>
+        <img className={styles.picture} src={avatarLink}/>
         <div className={styles.content}>
             <div className={styles.name}>{props.message.name}</div>
             <div className={styles.text}>{props.message.text}</div>

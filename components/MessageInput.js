@@ -7,6 +7,9 @@ const MessageInput = () => {
   const [inputText, setInputText] = useState("");
   const [username, setUsername] = useState("");
   const [usernameExists, setUsernameExists] = useState(false);
+  const [avatar, setAvatar] = useState("");
+  const [avatarExists, setAvatarExists] = useState(false);
+  const avatars = ["avatar1", "avatar2", "avatar3", "avatar4", "avatar5", "avatar6", "avatar7"];
 
   const handleInputTextChange = (event) => {
     setInputText(event.target.value);
@@ -20,9 +23,22 @@ const MessageInput = () => {
     setUsername(event.target.value);
   };
 
-  const handleUsernameSubmit = (event) => {
+  const handleAvatarSubmit = () => {
+    setAvatar(avatars[Math.floor(Math.random()*avatars.length)]);
+    sessionStorage.setItem("avatar", avatar);
+    setAvatarExists(true);
+    console.log(avatar);
+  }
+
+  const handleUsernameSubmit = () => {
     sessionStorage.setItem("name", username);
     setUsernameExists(true);
+  }
+
+  const handleUserSubmit = (event) => {
+    handleUsernameSubmit();
+    handleAvatarSubmit();
+    console.log(avatar);
     event.preventDefault();
   };
 
@@ -30,7 +46,11 @@ const MessageInput = () => {
     if (sessionStorage.getItem("name")) {
       setUsername(sessionStorage.getItem("name"));
       setUsernameExists(true);
-    }
+    };
+    if (sessionStorage.getItem("avatar")) {
+      setAvatar(sessionStorage.getItem("avatar"));
+      setAvatarExists(true);
+    };
   }, []);
 
   const handleMessageSubmit = (event) => {
@@ -49,6 +69,7 @@ const MessageInput = () => {
       body: JSON.stringify({
         name: username,
         text: inputText,
+        avatar: avatar,
       }),
     })
       .then()
@@ -62,7 +83,7 @@ const MessageInput = () => {
   return (
     <div className={styles.container}>
       {!usernameExists && (
-        <form className={styles.form} onSubmit={handleUsernameSubmit}>
+        <form className={styles.form} onSubmit={handleUserSubmit}>
           <label>
             <input
               type="text"
