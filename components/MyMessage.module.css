@@ -10,6 +10,7 @@
   width: 40px;
   height: 40px;
   margin-right: 5px;
+  margin-bottom: 3px;
   border-radius: 50%;
   align-self: flex-end;
 }
@@ -28,11 +29,31 @@
 }
 
 .text {
-  background-color: #2ca4ff;
+  background-color: #13c6fe;
   color: #ffffff;
   padding: 10px;
   padding-right: 13px;
   padding-left: 12px;
   border-radius: 18px 18px 3px 18px;
   margin: 5px;
+}
+
+@media (max-width: 1100px) {
+  .message {
+    margin-top: 6px;
+  }
+
+  .picture {
+    width: 28px;
+    height: 28px;
+  }
+
+  .name {
+    font-size: 12px;
+  }
+
+  .text {
+    font-size: 12px;
+    padding: 6px;
+  }
 }
