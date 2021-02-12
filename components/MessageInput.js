@@ -36,6 +36,10 @@ const MessageInput = () => {
   }
 
   const handleUserSubmit = (event) => {
+    if (!username) {
+      event.preventDefault(); 
+      return;
+    }
     handleUsernameSubmit();
     handleAvatarSubmit();
     console.log(avatar);

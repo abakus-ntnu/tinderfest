@@ -32,19 +32,19 @@ const MessageList = (props) => {
   };
 
   // Get messages from server
-  const getMessages = () => {
-    fetch(MESSAGE_SERVER, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((messages) => {
-        messages.forEach(addMessage);
-      });
-  };
+  // const getMessages = () => {
+  //   fetch(MESSAGE_SERVER, {
+  //     method: "GET",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((messages) => {
+  //       messages.forEach(addMessage);
+  //     });
+  // };
 
   // Listen to server for new messages
   useEffect(() => {
