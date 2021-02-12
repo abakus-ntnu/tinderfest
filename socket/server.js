@@ -15,23 +15,23 @@ const io = require("socket.io")(server, {
     origin: "*",
   },
 });
-const rateLimit = require("express-rate-limit");
-const redisStore = require("rate-limit-redis");
+const RateLimit = require("express-rate-limit");
+const RedisStore = require("rate-limit-redis");
 const env = require("./env");
 
-const apiLimiter = new rateLimit({
-  store: new redisStore({
-    redisURL: "redis://127.0.0.1:6379"
+const apiLimiter = new RateLimit({
+  store: new RedisStore({
+    redisURL: env.REDIS_URL,
+    expiry: 2 // 2 seconds
   }),
-  windowMs:  10 * 1000, // 1 minute
-  max: 2, // limit each IP to 7 requests per windowMs
-  statusCode: 400,
-  message: "rate limit exceeded. Please wait",
-  delayMs: 0
+  // windowMs: 1000, // 1 second (redis uses expiry, not windowMs, see https://github.com/wyattjoh/rate-limit-redis/issues/32 ) 
+  max: 3, // limit each IP to 3 requests per windowMs or expiry
+  statusCode: 429,
+  message: "Rate limit exceeded. Please wait"
 });
 
-app.use(apiLimiter);
 app.use(cors());
+app.use(apiLimiter);
 app.use(express.static(__dirname, ));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -117,6 +117,6 @@ mongoose.connect(dbUrl, (err) => {
   console.log('mongodb connected',err);
 })*/
 
-server.listen(5000, () => {
+server.listen(env.PORT, () => {
   console.log("server is running on port", server.address().port);
 });
