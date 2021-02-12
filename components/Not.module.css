@@ -14,3 +14,18 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@media (max-width: 1100px) {
+  .button {
+    background-color: white;
+    width: 35px;
+    height: 35px;
+  }
+
+  .x {
+    width: 35px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

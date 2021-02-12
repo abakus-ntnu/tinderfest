@@ -1,5 +1,6 @@
-.content {
+.centerContent {
   margin-top: 8%;
+  margin-bottom: 3%;
 }
 
 .header {
@@ -20,8 +21,14 @@
   flex-direction: column;
 }
 
+.streamAndReactions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 70px;
+}
+
 .voting {
-  /*background-color: blue;*/
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -41,5 +48,14 @@
 .chat {
   display: flex;
   flex-direction: column;
-  margin-left: 70px;
+}
+
+@media (max-width: 1100px) {
+  .header {
+    font-size: 1.1em;
+  }
+
+  .streamAndReactions {
+    margin-right: 30px;
+  }
 }

@@ -27,10 +27,10 @@ const HotReactionWindow = (props) => {
         angle: 70,
         elementCount: 1,
         springAnimaion: false,
-        emoji: ["<img style='width:40px;' src='hot.png'/>"]
+        emoji: ["<img style='width:35px; filter: drop-shadow(3px 3px 3px rgba(33,33,33,.2));' src='hot.png'/>"]
       }
       }>
-      <div></div> {/*use this when changing style?*/}
+      <div></div>
     </Reward>
   </div>;
 }

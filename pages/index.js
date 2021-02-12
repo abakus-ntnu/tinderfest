@@ -34,13 +34,13 @@ const Index = () => {
     <Helmet>
       <title>{ "tinderfest" }</title>
     </Helmet>
-    <div className={styles.content}>
+    <div className={styles.centerContent}>
       <div className={styles.header}>
         <h1>tinderfest</h1>
       </div>
       <div className={styles.streamAndMessages}>
         <div className={styles.streamAndVoting}>
-          <div style={{display: 'flex', "alignItems": "flexEnd"}}>
+          <div className={styles.streamAndReactions}> {/* style={{display: 'flex', "alignItems": "flexEnd"}} */}
             <HotReactionWindow socket={socket} showReactions={showReactions} />
             <Stream streamId="zkBpmCPENDU"/>
             <NotReactionWindow socket={socket} showReactions={showReactions}/>
@@ -60,9 +60,6 @@ const Index = () => {
       </div>
     </div>
     <Agenda agenda={data.agenda}/>
-
-
- 
     </div>);
 }
 export default Index;
