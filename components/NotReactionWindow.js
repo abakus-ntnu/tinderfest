@@ -27,7 +27,7 @@ const NotReactionWindow = (props) => {
         angle: 110,
         elementCount: 1,
         springAnimaion: false,
-        emoji: ["<img style='width:50px;' src='not.png'/>"]
+        emoji: ["<img style='width:50px; filter: drop-shadow(3px 3px 3px rgba(33,33,33,.2));' src='not.png'/>"]
       }
       }>
     <div></div>
