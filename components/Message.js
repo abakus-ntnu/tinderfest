@@ -1,6 +1,9 @@
-import styles from "./Message.module.css"
+import MessageStyle from "./Message.module.css";
+import myMessageStyle from "./MyMessage.module.css";
 
 const Message = (props) => {
+    const styles = props.message.name === sessionStorage.getItem("name") ? myMessageStyle: MessageStyle;
+
     console.log(props);
     const avatarLink = "/" + props.message.avatar + ".png";
     return (<div className={styles.message}>
