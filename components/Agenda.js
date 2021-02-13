@@ -24,7 +24,7 @@ const Agenda = (props) => {
             date={event.time}
             dateClassName={styles.verticalTimelineElementDate}
             iconStyle={{
-              background: 'rgb(33, 150, 243)',
+              background: '#efefef',
               color: '#fff',
             }}
           >
