@@ -25,7 +25,7 @@ const apiLimiter = new RateLimit({
     expiry: 2 // 2 seconds
   }),
   // windowMs: 1000, // 1 second (redis uses expiry, not windowMs, see https://github.com/wyattjoh/rate-limit-redis/issues/32 ) 
-  max: 3, // limit each IP to 3 requests per windowMs or expiry
+  max: 0, // limit each IP to 3 requests per windowMs or expiry
   statusCode: 429,
   message: "Rate limit exceeded. Please wait"
 });
@@ -84,9 +84,24 @@ app.post("/messages", async (req, res) => {
   }
 });
 
+let hotCounted = 0;
+let notCounted = 0;
+let hotCounter = 0;
+let notCounter = 0;
+let limitPerSec = 50;
+
+setInterval(() => {
+  hotCounted = hotCounter;
+  notCounted = notCounter;
+  hotCounter = 0;
+  notCounter = 0;
+}, 1000);
+
 app.post("/hot", async(req, res) => {
   try {
-    io.emit("hot");
+    hotCounter++;
+    if (hotCounter > Math.random() * (hotCounted+notCounted)**2 / limitPerSec)
+      io.emit("hot");
     return res.sendStatus(200);
 
   } catch (error) {
@@ -100,7 +115,9 @@ app.post("/hot", async(req, res) => {
 
 app.post("/not", async(req, res) => {
   try {
-    io.emit("not");
+    notCounter++;
+    if (notCounter > Math.random() * (hotCounted+notCounted)**2 / limitPerSec)
+      io.emit("not");
     return res.sendStatus(200);
 
   } catch (error) {
