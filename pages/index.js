@@ -1,4 +1,3 @@
-import Info from '../components/Info';
 import MessageInput from '../components/MessageInput';
 import useSWR from 'swr';
 import MessageList from '../components/MessageList';
@@ -8,7 +7,6 @@ import Stream from '../components/Stream';
 import Agenda from '../components/Agenda';
 import Infobox from '../components/Infobox';
 import styles from './index.module.css';
-import { Helmet } from 'react-helmet';
 
 // Socket
 import socketIOClient from 'socket.io-client';
@@ -31,9 +29,6 @@ const Index = () => {
 
   return (
     <div className={styles.container}>
-      <Helmet>
-        <title>{'tinderfest'}</title>
-      </Helmet>
       <div className={styles.centerContent}>
         <div className={styles.header}>
           <img className={styles.headerImg} src="/header_tinderfest.png" />
@@ -41,13 +36,11 @@ const Index = () => {
         <div className={styles.streamAndMessages}>
           <div className={styles.streamAndVoting}>
             <div className={styles.streamAndReactions}>
-              {' '}
-              {/* style={{display: 'flex', "alignItems": "flexEnd"}} */}
               <HotReactionWindow
                 socket={socket}
                 showReactions={showReactions}
               />
-              <Stream streamId="zkBpmCPENDU" />
+              <Stream streamId="LA4ewa851CY" />
               <NotReactionWindow
                 socket={socket}
                 showReactions={showReactions}

@@ -9,7 +9,7 @@ const AgendaSchema = new mongoose.Schema(
     time: { type: String },
     description: { type: String },
   },
-  { autoCreate: true }
+  { autoCreate: true },
 );
 export const Agenda = mongoose.model('Agenda', AgendaSchema);
 
@@ -17,6 +17,6 @@ const InfoSchema = new mongoose.Schema(
   {
     text: { type: String },
   },
-  { autoCreate: true }
+  { autoCreate: true },
 );
 export const Info = mongoose.model('Info', InfoSchema);

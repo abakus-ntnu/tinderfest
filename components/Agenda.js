@@ -1,4 +1,3 @@
-import { render } from 'react-dom';
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -12,7 +11,6 @@ const Agenda = (props) => {
     <VerticalTimeline>
       {agenda.map((event) => {
         return (
-          //rgb(33, 150, 243)
           <VerticalTimelineElement
             className={styles.verticalTimelineElementWork}
             contentStyle={{

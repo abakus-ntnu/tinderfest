@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import ReactSwitch from 'react-switch';
 import styles from './ReactionToggle.module.css';
 

@@ -1,9 +1,6 @@
-import { useEffect } from 'react';
 import styles from './Not.module.css';
 
-const Not = (props) => {
-  //const socket = props.socket;
-
+const Not = () => {
   const sendNot = () => {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/not`, {
       method: 'POST',
