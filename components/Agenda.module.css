@@ -3,7 +3,14 @@ TODO:
   -fix issue where the bottom of the page doesn't share the same background as the body 
 */
 
-.space {
-  height: 100%;
-  margin-bottom: 100px;
+.custom {
+  width: 200px;
+}
+
+.verticalTimelineElementTitle {
+  color: #000;
+}
+
+.verticalTimelineElementDescription {
+  color: #000;
 }
