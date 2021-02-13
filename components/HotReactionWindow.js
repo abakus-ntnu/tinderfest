@@ -17,21 +17,19 @@ const HotReactionWindow = (props) => {
     return () => socket.off("hot", generateReaction);
   }, [showReactions]);
 
-  return <div>
-    <Reward ref={(ref) => {reward = ref}} type={"emoji"} config={
+  return <Reward ref={(ref) => {reward = ref}} type={"emoji"} config={
       {
         lifetime: 100,
-        decay: 1,
+        decay: 1.02,
         startVelocity: 7,
         spread: 10,
-        angle: 70,
+        angle: 80,
         elementCount: 1,
-        springAnimaion: false,
+        springAnimation: false,
         emoji: ["<img style='width:35px; filter: drop-shadow(3px 3px 3px rgba(33,33,33,.2));' src='hot.png'/>"]
       }
       }>
       <div></div>
-    </Reward>
-  </div>;
+    </Reward>;
 }
 export default HotReactionWindow;
