@@ -1,9 +1,6 @@
-import { useEffect } from 'react';
 import styles from './Hot.module.css';
 
-const Hot = (props) => {
-  //const socket = props.socket;
-
+const Hot = () => {
   const sendHot = () => {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/hot`, {
       method: 'POST',

@@ -1,5 +1,3 @@
-// TODO: Empty Message filter
-
 import { useEffect, useState } from 'react';
 import styles from './MessageInput.module.css';
 
@@ -26,10 +24,6 @@ const MessageInput = () => {
     setInputText(event.target.value);
   };
 
-  const handleInputTextKeyDown = (event) => {
-    if (event.key === 'Enter') sendMessage();
-  };
-
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
   };
@@ -51,7 +45,6 @@ const MessageInput = () => {
       return;
     }
     handleUsernameSubmit();
-    //handleAvatarSubmit();
     event.preventDefault();
   };
 
@@ -67,7 +60,6 @@ const MessageInput = () => {
   }, []);
 
   const handleMessageSubmit = (event) => {
-    // Cannot send empty message
     if (!inputText || inputText > maxTextLength) {
       event.preventDefault();
       return;
@@ -125,7 +117,6 @@ const MessageInput = () => {
               onChange={handleInputTextChange}
               className={styles.messageInput}
               maxLength={maxTextLength}
-              // onKeyDown={handleInputTextKeyDown}
             />
           </label>
           <input className={styles.submitInput} type="submit" value="Send" />

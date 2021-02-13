@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Reward from 'react-rewards';
 
 const NotReactionWindow = (props) => {

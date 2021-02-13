@@ -1,10 +1,7 @@
-import { useEffect, useRef } from 'react';
-import { useState } from 'react/cjs/react.development';
+import { useEffect, useRef, useState } from 'react';
 import socketIOClient from 'socket.io-client';
 import Message from './Message';
 import styles from './MessageList.module.css';
-
-const ENDPOINT = 'ws://localhost:5000';
 
 const MessageList = (props) => {
   const socket = props.socket;
@@ -23,7 +20,7 @@ const MessageList = (props) => {
     setMessages((prevMessages) =>
       prevMessages.length <= maxMessages
         ? [...prevMessages, message]
-        : [...prevMessages.shift(), message]
+        : [...prevMessages.shift(), message],
     );
     setNoOverflow(messages < maxMessages);
 
@@ -36,26 +33,8 @@ const MessageList = (props) => {
     }
   };
 
-  // Get messages from server
-  // const getMessages = () => {
-  //   fetch(MESSAGE_SERVER, {
-  //     method: "GET",
-  //     headers: {
-  //       Accept: "application/json",
-  //       "Content-Type": "application/json",
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((messages) => {
-  //       messages.forEach(addMessage);
-  //     });
-  // };
-
-  // Listen to server for new messages
   useEffect(() => {
     socket.on('message', addMessage);
-
-    // To avoid memory leak
     return () => socket.off('message', addMessage);
   }, []);
 
@@ -69,10 +48,6 @@ const MessageList = (props) => {
           {messages.map((message, i) => (
             <Message key={i} message={message} />
           ))}
-          {/* 
-        Dev 
-        <button onClick={testAddMessage}>hnn</button>
-      */}
         </div>
       </div>
     </div>
