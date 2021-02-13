@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 delete mongoose.connection.models["Agenda"];
-delete mongoose.connection.models["Lines"];
+delete mongoose.connection.models["Info"];
 
 const AgendaSchema = new mongoose.Schema(
     {
@@ -12,10 +12,10 @@ const AgendaSchema = new mongoose.Schema(
 );
 export const Agenda = mongoose.model("Agenda", AgendaSchema);
 
-const LinesSchema = new mongoose.Schema(
+const InfoSchema = new mongoose.Schema(
     {
         type: String
     },
     { autoCreate: true }
 );
-export const Lines = mongoose.model("Lines", LinesSchema);
+export const Info = mongoose.model("Info", InfoSchema);

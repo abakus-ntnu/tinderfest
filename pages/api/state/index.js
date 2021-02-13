@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 import {
     Agenda,
-    Lines
+    Info
 } from "../../../models/schema.js";
 
 const username = process.env.DATABASE_USER;
@@ -22,7 +22,7 @@ export default async function handler(_, res) {
 
   // Get all the state we need for the page
    const agenda = await Agenda.find({});
-   const lines = await Lines.find({});
+   const info = await Info.find({});
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
@@ -31,7 +31,7 @@ export default async function handler(_, res) {
   res.end(
     JSON.stringify({
         agenda,
-        lines,
+        info,
     })
   );
   */
@@ -43,7 +43,7 @@ export default async function handler(_, res) {
        {time: "17.00", title: "event2", description: "blablabla"},
        {time: "20.00", title: "event4", description: "hei ho"},
      ],
-     lines: ["gherifj<OJFAJO", "JFOEJOFWJF", "jorroikgekfmandkf"],
+     info: ["gherifj<OJFAJO", "JFOEJOFWJF", "jorroikgekfmandkf"],
  }));
  
 }
