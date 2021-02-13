@@ -41,8 +41,7 @@ const MessageInput = () => {
       return;
     }
     handleUsernameSubmit();
-    handleAvatarSubmit();
-    console.log(avatar);
+    //handleAvatarSubmit();
     event.preventDefault();
   };
 
@@ -63,6 +62,10 @@ const MessageInput = () => {
       event.preventDefault(); 
       return;
     } 
+
+    console.log(username);
+      console.log(inputText);
+      console.log(avatar);
 
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/messages`, {
       method: "POST",
@@ -100,7 +103,8 @@ const MessageInput = () => {
           <input className={styles.submitInput} type="submit" value="Sett brukernavn" />
         </form>
       )}
-      {usernameExists && (
+      {!avatarExists && handleAvatarSubmit()}
+      {usernameExists && avatarExists && (
         <form className={styles.form} onSubmit={handleMessageSubmit}>
           <label>
             <input
