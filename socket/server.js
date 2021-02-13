@@ -53,7 +53,7 @@ app.post('/messages', async (req, res) => {
     res.sendStatus(500);
     return console.log('error', error);
   } finally {
-    console.log('Message Posted');
+    //console.log('Message Posted');
   }
 });
 
@@ -65,7 +65,7 @@ app.post('/hot', async (req, res) => {
     res.sendStatus(500);
     return console.log('error', error);
   } finally {
-    console.log('Hot Posted');
+    //console.log('Hot Posted');
   }
 });
 
@@ -77,7 +77,7 @@ app.post('/not', async (req, res) => {
     res.sendStatus(500);
     return console.log('error', error);
   } finally {
-    console.log('Not Posted');
+    //console.log('Not Posted');
   }
 });
 
