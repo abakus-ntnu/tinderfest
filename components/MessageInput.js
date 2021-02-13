@@ -19,6 +19,9 @@ const MessageInput = () => {
     'avatar7',
   ];
 
+  const maxTextLength = 55;
+  const maxUsernameLength = 20;
+
   const handleInputTextChange = (event) => {
     setInputText(event.target.value);
   };
@@ -43,7 +46,7 @@ const MessageInput = () => {
   };
 
   const handleUserSubmit = (event) => {
-    if (!username) {
+    if (!username || username > maxUsernameLength) {
       event.preventDefault();
       return;
     }
@@ -65,7 +68,7 @@ const MessageInput = () => {
 
   const handleMessageSubmit = (event) => {
     // Cannot send empty message
-    if (!inputText) {
+    if (!inputText || inputText > maxTextLength) {
       event.preventDefault();
       return;
     }
@@ -101,6 +104,7 @@ const MessageInput = () => {
               placeholder="Navn"
               onChange={handleUsernameChange}
               className={styles.usernameInput}
+              maxLength={maxUsernameLength}
             />
           </label>
           <input
@@ -120,6 +124,7 @@ const MessageInput = () => {
               placeholder="Skriv en melding ..."
               onChange={handleInputTextChange}
               className={styles.messageInput}
+              maxLength={maxTextLength}
               // onKeyDown={handleInputTextKeyDown}
             />
           </label>
