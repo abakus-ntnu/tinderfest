@@ -27,7 +27,6 @@ const MessageInput = () => {
     setAvatar(avatars[Math.floor(Math.random()*avatars.length)]);
     sessionStorage.setItem("avatar", avatar);
     setAvatarExists(true);
-    console.log(avatar);
   }
 
   const handleUsernameSubmit = () => {
@@ -61,11 +60,7 @@ const MessageInput = () => {
     if (!inputText) {
       event.preventDefault(); 
       return;
-    } 
-
-    console.log(username);
-      console.log(inputText);
-      console.log(avatar);
+    }
 
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/messages`, {
       method: "POST",
