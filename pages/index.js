@@ -6,7 +6,7 @@ import Hot from "../components/Hot";
 import Not from "../components/Not";
 import Stream from "../components/Stream";
 import Agenda from "../components/Agenda";
-import Lines from "../components/Lines";
+import Infobox from "../components/Infobox";
 import styles from "./index.module.css";
 import { Helmet } from 'react-helmet'
 
@@ -58,10 +58,10 @@ const Index = () => {
         </div>
       </div>
     </div>
-    <div className={styles.agendaAndLines}>
+    <div>
       <Agenda agenda={data.agenda}/>
-      <Lines lines={data.lines}/>
     </div>
+    <Infobox info={data.info}/>
     </div>);
 }
 export default Index;
