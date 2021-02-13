@@ -1,14 +1,14 @@
 .button {
   background-color: white;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   position: relative;
   border-radius: 50%;
   cursor: pointer;
 }
 
 .x {
-  width: 50px;
+  width: 60px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -18,12 +18,12 @@
 @media (max-width: 1100px) {
   .button {
     background-color: white;
-    width: 35px;
-    height: 35px;
+    width: 55px;
+    height: 55px;
   }
 
   .x {
-    width: 35px;
+    width: 54px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
