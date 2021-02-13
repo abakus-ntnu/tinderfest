@@ -10,7 +10,7 @@ const Not = (props) => {
       method: "POST",
     })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   }
   
