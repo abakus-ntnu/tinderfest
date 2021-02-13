@@ -1,14 +1,20 @@
 .button {
   background-color: white;
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
   position: relative;
   border-radius: 50%;
   cursor: pointer;
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  box-shadow: 4px 2px 11px rgba(65, 41, 41, 0.3);
 }
 
 .x {
-  width: 60px;
+  width: 100px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -18,12 +24,12 @@
 @media (max-width: 1100px) {
   .button {
     background-color: white;
-    width: 55px;
-    height: 55px;
+    width: 70px;
+    height: 70px;
   }
 
   .x {
-    width: 54px;
+    width: 70px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
