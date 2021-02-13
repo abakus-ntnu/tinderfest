@@ -7,19 +7,6 @@
   justify-content: center;
 }
 
-.picture {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-top: 12px;
-}
-
-.name {
-  padding-top: 20px;
-  padding-left: 10px;
-  font-size: 20px;
-}
-
 .frame {
   position: relative;
   height: 550px;
@@ -27,7 +14,6 @@
   overflow-x: hidden;
   background-color: white;
   box-shadow: inset 0px 11px 8px -10px #ccc, inset 0px -11px 8px -10px #ccc;
-  /*border-radius: 30px 30px 0px 0px;*/
 }
 
 .list {
@@ -48,12 +34,9 @@
     width: 240px;
   }
 
-  .picture {
-    margin-top: 7px;
-  }
-
-  .name {
-    font-size: 16px;
+  .chatH2 {
+    margin-top: 19px;
+    font-size: 18px;
   }
 
   .frame {

@@ -62,8 +62,7 @@ const MessageList = (props) => {
   return (
     <div>
       <div className={styles.messageListHeader}>
-        <img className={styles.picture} src={"/" + sessionStorage.getItem("avatar") + ".png"} />
-        <div className={styles.name}>{sessionStorage.getItem("name")}</div>
+        <h2 className={styles.chatH2}>#chat</h2>
       </div>
       <div className={styles.frame}>
       <div className={styles.list} ref={listRef}>

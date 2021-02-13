@@ -1,7 +1,7 @@
 .button {
   background-color: white;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   position: relative;
   border-radius: 50%;
   cursor: pointer;
@@ -15,9 +15,9 @@
 */
 
 .heart {
-  width: 30px;
+  width: 45px;
   position: absolute;
-  top: 50%;
+  top: 54%;
   left: 50%;
   transform: translate(-50%, -50%);
   /*transition: all 2s ease-in-out;*/
@@ -26,13 +26,13 @@
 @media (max-width: 1100px) {
   .button {
     background-color: white;
-    width: 35px;
-    height: 35px;
+    width: 55px;
+    height: 55px;
   }
 
   .heart {
-    width: 22.5px;
-    top: 50%;
+    width: 35px;
+    top: 54%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
