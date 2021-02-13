@@ -13,20 +13,27 @@ const MessageList = (props) => {
   const listRef = useRef();
 
   const [messages, setMessages] = useState([]);
+  const [noOverflow, setNoOverflow] = useState(true);
   
   const addMessage = (message) => {
+    const maxMessages = 50;
+
     const oldBottom =
       listRef.current.scrollHeight -
       listRef.current.clientHeight;
 
-    setMessages((prevMessages)=> prevMessages.length <= 50 ? [...prevMessages, message] : [...prevMessages.shift(), message])
-    
-    const bottom =
-      listRef.current.scrollHeight -
-      listRef.current.clientHeight;
+    setMessages((prevMessages)=> prevMessages.length <= maxMessages ? [...prevMessages, message] : [...prevMessages.shift(), message])
+    setNoOverflow(messages < maxMessages);
 
-    if (listRef.current.scrollTop >= oldBottom-150)
-      listRef.current.scrollTo(0, bottom);
+    if (noOverflow) {
+      const bottom =
+        listRef.current.scrollHeight -
+        listRef.current.clientHeight;
+  
+      if (listRef.current.scrollTop >= oldBottom-150)
+        listRef.current.scrollTo(0, bottom);
+    }
+
   };
 
   // Get messages from server
