@@ -21,7 +21,21 @@
   justify-content: space-evenly;
 }
 
-.textInput {
+.messageInput {
+  border: none;
+  outline: none;
+  color: #555555;
+  font-size: 16px;
+  padding: 10px;
+  width: 80%;
+  background-color: transparent;
+}
+
+.messageInput::placeholder {
+  color: #999999;
+}
+
+.usernameInput {
   border: none;
   outline: none;
   color: #555555;
@@ -31,7 +45,7 @@
   background-color: transparent;
 }
 
-.textInput::placeholder {
+.usernameInput::placeholder {
   color: #999999;
 }
 
@@ -61,10 +75,8 @@
     width: 240px;
   }
 
-  .textInput {
-    font-size: 12px;
-  }
-
+  .messageInput,
+  .usernameInput,
   .submitInput {
     font-size: 12px;
   }
