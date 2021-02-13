@@ -6,8 +6,6 @@ import styles from "./MessageList.module.css";
 
 const ENDPOINT = "ws://localhost:5000";
 
-// TODO: Hot or not component
-
 
 const MessageList = (props) => {
   const socket = props.socket;
@@ -15,7 +13,7 @@ const MessageList = (props) => {
   const listRef = useRef();
 
   const [messages, setMessages] = useState([]);
-
+  
   const addMessage = (message) => {
     const oldBottom =
       listRef.current.scrollHeight -
@@ -56,6 +54,10 @@ const MessageList = (props) => {
 
   return (
     <div>
+      <div className={styles.messageListHeader}>
+        <img className={styles.picture} src={"/" + sessionStorage.getItem("avatar") + ".png"} />
+        <div className={styles.name}>{sessionStorage.getItem("name")}</div>
+      </div>
       <div className={styles.frame}>
       <div className={styles.list} ref={listRef}>
       {messages.map((message, i) => <Message key={i} message={message} />)}
