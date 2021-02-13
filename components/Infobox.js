@@ -4,9 +4,9 @@ const Infobox = (props) => {
   const info = props.info;
   return (
     <div className={styles.info}>
-      <h1>Info:</h1>
+      <h1>Informasjon:</h1>
       {info.map((line) => {
-        return <p>{info}</p>;
+        return <p>{line.text}</p>;
       })}
     </div>
   );

@@ -70,10 +70,19 @@ const Index = () => {
           </div>
         </div>
       </div>
-      <div>
-        <Agenda agenda={data.agenda} />
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          width: '100%',
+          flexWrap: 'wrap',
+        }}
+      >
+        {data.info.length != 0 && <Infobox info={data.info} />}
+        <div style={{ flex: 2 }}>
+          <Agenda agenda={data.agenda} />
+        </div>
       </div>
-      <Infobox info={data.info} />
     </div>
   );
 };

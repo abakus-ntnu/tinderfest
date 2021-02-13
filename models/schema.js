@@ -5,6 +5,7 @@ delete mongoose.connection.models['Info'];
 
 const AgendaSchema = new mongoose.Schema(
   {
+    title: { type: String },
     time: { type: String },
     description: { type: String },
   },
@@ -14,7 +15,7 @@ export const Agenda = mongoose.model('Agenda', AgendaSchema);
 
 const InfoSchema = new mongoose.Schema(
   {
-    type: String,
+    text: { type: String },
   },
   { autoCreate: true }
 );
