@@ -100,7 +100,7 @@ const MessageInput = () => {
               value={username}
               placeholder="Navn"
               onChange={handleUsernameChange}
-              className={styles.textInput}
+              className={styles.usernameInput}
             />
           </label>
           <input
@@ -119,7 +119,7 @@ const MessageInput = () => {
               value={inputText}
               placeholder="Skriv en melding ..."
               onChange={handleInputTextChange}
-              className={styles.textInput}
+              className={styles.messageInput}
               // onKeyDown={handleInputTextKeyDown}
             />
           </label>
