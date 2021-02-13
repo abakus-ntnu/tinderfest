@@ -1,38 +1,36 @@
 .button {
   background-color: white;
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
   position: relative;
   border-radius: 50%;
   cursor: pointer;
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+  transition: all 0.2s ease-in-out;
 }
 
-/*
-.button:hover .heart {
-  transform-origin: 0 0;
-  transform: scale(1.2);
+.button:hover {
+  box-shadow: 4px 2px 11px rgba(65, 41, 41, 0.3);
 }
-*/
 
 .heart {
-  width: 45px;
+  width: 65px;
   position: absolute;
   top: 54%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /*transition: all 2s ease-in-out;*/
 }
 
 @media (max-width: 1100px) {
   .button {
     background-color: white;
-    width: 55px;
-    height: 55px;
+    width: 70px;
+    height: 70px;
   }
 
   .heart {
-    width: 35px;
-    top: 54%;
+    width: 47px;
+    top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
