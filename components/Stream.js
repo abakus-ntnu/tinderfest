@@ -1,5 +1,5 @@
-import YouTube from "react-youtube";
-import styles from "./Stream.module.css";
+import YouTube from 'react-youtube';
+import styles from './Stream.module.css';
 
 const Stream = ({ streamId }) => {
   const videoOpts = {
@@ -19,4 +19,4 @@ const Stream = ({ streamId }) => {
     </div>
   );
 };
-export default Stream; 
+export default Stream;

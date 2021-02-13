@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
   height: 100vh;
@@ -14,7 +14,7 @@ body {
     rgba(255, 88, 100, 1) 47%,
     rgba(255, 101, 91, 1) 100%
   );
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 ::selection {

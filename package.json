@@ -28,6 +28,6 @@
     "prettier": "^2.2.1"
   },
   "prettier": {
-    "singelQuote": "true"
+    "singleQuote": true
   }
 }

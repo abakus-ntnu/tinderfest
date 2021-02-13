@@ -1,22 +1,30 @@
 // TODO: Empty Message filter
 
-import { useEffect, useState } from "react";
-import styles from "./MessageInput.module.css";
+import { useEffect, useState } from 'react';
+import styles from './MessageInput.module.css';
 
 const MessageInput = () => {
-  const [inputText, setInputText] = useState("");
-  const [username, setUsername] = useState("");
+  const [inputText, setInputText] = useState('');
+  const [username, setUsername] = useState('');
   const [usernameExists, setUsernameExists] = useState(false);
-  const [avatar, setAvatar] = useState("");
+  const [avatar, setAvatar] = useState('');
   const [avatarExists, setAvatarExists] = useState(false);
-  const avatars = ["avatar1", "avatar2", "avatar3", "avatar4", "avatar5", "avatar6", "avatar7"];
+  const avatars = [
+    'avatar1',
+    'avatar2',
+    'avatar3',
+    'avatar4',
+    'avatar5',
+    'avatar6',
+    'avatar7',
+  ];
 
   const handleInputTextChange = (event) => {
     setInputText(event.target.value);
   };
 
   const handleInputTextKeyDown = (event) => {
-    if (event.key === "Enter") sendMessage();
+    if (event.key === 'Enter') sendMessage();
   };
 
   const handleUsernameChange = (event) => {
@@ -24,19 +32,19 @@ const MessageInput = () => {
   };
 
   const handleAvatarSubmit = () => {
-    setAvatar(avatars[Math.floor(Math.random()*avatars.length)]);
-    sessionStorage.setItem("avatar", avatar);
+    setAvatar(avatars[Math.floor(Math.random() * avatars.length)]);
+    sessionStorage.setItem('avatar', avatar);
     setAvatarExists(true);
-  }
+  };
 
   const handleUsernameSubmit = () => {
-    sessionStorage.setItem("name", username);
+    sessionStorage.setItem('name', username);
     setUsernameExists(true);
-  }
+  };
 
   const handleUserSubmit = (event) => {
     if (!username) {
-      event.preventDefault(); 
+      event.preventDefault();
       return;
     }
     handleUsernameSubmit();
@@ -45,28 +53,28 @@ const MessageInput = () => {
   };
 
   useEffect(() => {
-    if (sessionStorage.getItem("name")) {
-      setUsername(sessionStorage.getItem("name"));
+    if (sessionStorage.getItem('name')) {
+      setUsername(sessionStorage.getItem('name'));
       setUsernameExists(true);
-    };
-    if (sessionStorage.getItem("avatar")) {
-      setAvatar(sessionStorage.getItem("avatar"));
+    }
+    if (sessionStorage.getItem('avatar')) {
+      setAvatar(sessionStorage.getItem('avatar'));
       setAvatarExists(true);
-    };
+    }
   }, []);
 
   const handleMessageSubmit = (event) => {
     // Cannot send empty message
     if (!inputText) {
-      event.preventDefault(); 
+      event.preventDefault();
       return;
     }
 
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/messages`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         name: username,
@@ -78,7 +86,7 @@ const MessageInput = () => {
       .catch((error) => {
         console.error(error);
       });
-    setInputText("");
+    setInputText('');
     event.preventDefault();
   };
 
@@ -95,7 +103,11 @@ const MessageInput = () => {
               className={styles.textInput}
             />
           </label>
-          <input className={styles.submitInput} type="submit" value="Sett brukernavn" />
+          <input
+            className={styles.submitInput}
+            type="submit"
+            value="Sett brukernavn"
+          />
         </form>
       )}
       {!avatarExists && handleAvatarSubmit()}
@@ -116,5 +128,5 @@ const MessageInput = () => {
       )}
     </div>
   );
-}
+};
 export default MessageInput;

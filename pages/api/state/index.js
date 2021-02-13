@@ -1,16 +1,13 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-import {
-    Agenda,
-    Info
-} from "../../../models/schema.js";
+import { Agenda, Info } from '../../../models/schema.js';
 
 const username = process.env.DATABASE_USER;
 const password = process.env.DATABASE_PASSWORD;
-const dbname = "Tinderfest";
+const dbname = 'Tinderfest';
 
 //export const url = `mongodb+srv://${username}:${password}@cluster.au8e8.mongodb.net/${dbname}?retryWrites=true&w=majority`;
-export const url = 'mongodb://localhost/Tinderfest'
+export const url = 'mongodb://localhost/Tinderfest';
 
 export default async function handler(_, res) {
   mongoose.connect(url, {
@@ -21,11 +18,11 @@ export default async function handler(_, res) {
   });
 
   // Get all the state we need for the page
-   const agenda = await Agenda.find({});
-   const info = await Info.find({});
+  const agenda = await Agenda.find({});
+  const info = await Info.find({});
 
   res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
+  res.setHeader('Content-Type', 'application/json');
 
   /*
   res.end(
@@ -36,14 +33,23 @@ export default async function handler(_, res) {
   );
   */
 
-   res.end(JSON.stringify({ 
+  res.end(
+    JSON.stringify({
       agenda: [
-       {time: "18.00", title: "event1", description: "dette er en ting som skal skje"}, 
-       {time: "13.00", title: "event3", description: "dette er en annen ting som skal skje"},
-       {time: "17.00", title: "event2", description: "blablabla"},
-       {time: "20.00", title: "event4", description: "hei ho"},
-     ],
-     info: ["gherifj<OJFAJO", "JFOEJOFWJF", "jorroikgekfmandkf"],
- }));
- 
+        {
+          time: '18.00',
+          title: 'event1',
+          description: 'dette er en ting som skal skje',
+        },
+        {
+          time: '13.00',
+          title: 'event3',
+          description: 'dette er en annen ting som skal skje',
+        },
+        { time: '17.00', title: 'event2', description: 'blablabla' },
+        { time: '20.00', title: 'event4', description: 'hei ho' },
+      ],
+      info: ['gherifj<OJFAJO', 'JFOEJOFWJF', 'jorroikgekfmandkf'],
+    })
+  );
 }

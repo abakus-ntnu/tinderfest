@@ -1,11 +1,10 @@
-import { useEffect, useRef } from "react";
-import { useState } from "react/cjs/react.development";
-import socketIOClient from "socket.io-client";
-import Message from "./Message"; 
-import styles from "./MessageList.module.css";
+import { useEffect, useRef } from 'react';
+import { useState } from 'react/cjs/react.development';
+import socketIOClient from 'socket.io-client';
+import Message from './Message';
+import styles from './MessageList.module.css';
 
-const ENDPOINT = "ws://localhost:5000";
-
+const ENDPOINT = 'ws://localhost:5000';
 
 const MessageList = (props) => {
   const socket = props.socket;
@@ -14,26 +13,27 @@ const MessageList = (props) => {
 
   const [messages, setMessages] = useState([]);
   const [noOverflow, setNoOverflow] = useState(true);
-  
+
   const addMessage = (message) => {
     const maxMessages = 50;
 
     const oldBottom =
-      listRef.current.scrollHeight -
-      listRef.current.clientHeight;
+      listRef.current.scrollHeight - listRef.current.clientHeight;
 
-    setMessages((prevMessages)=> prevMessages.length <= maxMessages ? [...prevMessages, message] : [...prevMessages.shift(), message])
+    setMessages((prevMessages) =>
+      prevMessages.length <= maxMessages
+        ? [...prevMessages, message]
+        : [...prevMessages.shift(), message]
+    );
     setNoOverflow(messages < maxMessages);
 
     if (noOverflow) {
       const bottom =
-        listRef.current.scrollHeight -
-        listRef.current.clientHeight;
-  
-      if (listRef.current.scrollTop >= oldBottom-150)
+        listRef.current.scrollHeight - listRef.current.clientHeight;
+
+      if (listRef.current.scrollTop >= oldBottom - 150)
         listRef.current.scrollTo(0, bottom);
     }
-
   };
 
   // Get messages from server
@@ -53,10 +53,10 @@ const MessageList = (props) => {
 
   // Listen to server for new messages
   useEffect(() => {
-    socket.on("message", addMessage);
+    socket.on('message', addMessage);
 
     // To avoid memory leak
-    return () => socket.off("message", addMessage);
+    return () => socket.off('message', addMessage);
   }, []);
 
   return (
@@ -65,17 +65,17 @@ const MessageList = (props) => {
         <h2 className={styles.chatH2}>#chat</h2>
       </div>
       <div className={styles.frame}>
-      <div className={styles.list} ref={listRef}>
-      {messages.map((message, i) => <Message key={i} message={message} />)}
-        {/* 
+        <div className={styles.list} ref={listRef}>
+          {messages.map((message, i) => (
+            <Message key={i} message={message} />
+          ))}
+          {/* 
         Dev 
         <button onClick={testAddMessage}>hnn</button>
       */}
-      </div>
-
+        </div>
       </div>
     </div>
-
   );
-}
+};
 export default MessageList;
