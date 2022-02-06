@@ -6,7 +6,7 @@ const username = process.env.DATABASE_USER;
 const password = process.env.DATABASE_PASSWORD;
 const dbname = 'tinderfest';
 
-export const url = `mongodb+srv://${username}:${password}@tinderfest.zrvrz.mongodb.net/${dbname}?retryWrites=true&w=majority`;
+export const url = `mongodb+srv://${username}:${password}@cluster0.dfrod.mongodb.net/${dbname}?retryWrites=true&w=majority`;
 
 export default async function handler(_, res) {
   mongoose.connect(url, {
